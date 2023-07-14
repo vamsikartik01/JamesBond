@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'jamesbond';
+  isNavbar: boolean = false;
+  isMobile: boolean = false;
+
+  onToggleNavbar(){
+    this.isNavbar = !this.isNavbar
+  }
+
+  @HostListener('window:resize',['$event'])
+  onWindowResize(event: Event) {
+    this.isNavbar = window.innerWidth <= 768;
+    this.isMobile = window.innerWidth <= 768;
+  }
 }
