@@ -1,0 +1,35 @@
+.row-main{
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-side-bar{
+    display: inline-block;
+    width: 20%;
+    height:100vh;
+    padding: 10px;
+    box-shadow: 1px 1px 5px 1px gray;
+    
+}
+
+.nav-middle-bar{
+    height: 100vh;
+    width: 60%;
+}
+
+.collapse {
+    display: none;
+}
+
+@media (max-width: 768px) {  
+    .nav-side-bar{
+        width: 80%;
+        position: fixed;
+        background: white;
+    }
+
+    .nav-middle-bar{
+        width: 100%;
+    }
+}
