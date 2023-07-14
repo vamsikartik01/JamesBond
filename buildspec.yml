@@ -1,11 +1,9 @@
-version: 0.1
+version: 0.2
 
 phases:
   install:
-    commands:
-      - echo installing nodejs...
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt-get install -y nodejs  #aws code build use ubuntu environement
+    runtime-versions:
+        nodejs: 14.x
   pre_build:
     commands:
       - echo installing dependencies...
