@@ -10,12 +10,15 @@
     height:100vh;
     padding: 10px;
     box-shadow: 1px 1px 5px 1px gray;
-    
 }
 
 .nav-middle-bar{
     height: 100vh;
     width: 60%;
+}
+
+.nav-right-bar{
+    right: 0px;
 }
 
 .collapse {
@@ -32,4 +35,5 @@
     .nav-middle-bar{
         width: 100%;
     }
+
 }
