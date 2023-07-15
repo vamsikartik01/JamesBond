@@ -7,7 +7,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class NavBarComponent {
   @Output() toggleNavbar = new EventEmitter<boolean>()
+  @Output() toggleRightbar = new EventEmitter<boolean>()
   toggleBar(): void{
     this.toggleNavbar.emit(true)
+  }
+  toggleRightBar(): void{
+    this.toggleRightbar.emit(true)
   }
 }
