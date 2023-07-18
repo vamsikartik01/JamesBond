@@ -10,6 +10,8 @@ import { RoutinesListComponent } from './side-bar/routines-list/routines-list.co
 import { RoutineListItemComponent } from './side-bar/routines-list/routine-list-item/routine-list-item.component';
 import { RoomsListComponent } from './side-bar/rooms-list/rooms-list.component';
 import { RoomsListItemComponent } from './side-bar/rooms-list/rooms-list-item/rooms-list-item.component';
+import { WeatherComponent } from './right-side-bar/weather/weather.component';
+import { WeatherInfoComponent } from './right-side-bar/weather/weather-info/weather-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RoomsListItemComponent } from './side-bar/rooms-list/rooms-list-item/ro
     RoutinesListComponent,
     RoutineListItemComponent,
     RoomsListComponent,
-    RoomsListItemComponent
+    RoomsListItemComponent,
+    WeatherComponent,
+    WeatherInfoComponent
   ],
   imports: [
     BrowserModule
