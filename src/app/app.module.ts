@@ -6,6 +6,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BodyComponent } from './body/body.component';
 import { RightSideBarComponent } from './right-side-bar/right-side-bar.component';
+import { RoutinesListComponent } from './side-bar/routines-list/routines-list.component';
+import { RoutineListItemComponent } from './side-bar/routines-list/routine-list-item/routine-list-item.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { RightSideBarComponent } from './right-side-bar/right-side-bar.component
     SideBarComponent,
     NavBarComponent,
     BodyComponent,
-    RightSideBarComponent
+    RightSideBarComponent,
+    RoutinesListComponent,
+    RoutineListItemComponent
   ],
   imports: [
     BrowserModule
