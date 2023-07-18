@@ -8,6 +8,8 @@ import { BodyComponent } from './body/body.component';
 import { RightSideBarComponent } from './right-side-bar/right-side-bar.component';
 import { RoutinesListComponent } from './side-bar/routines-list/routines-list.component';
 import { RoutineListItemComponent } from './side-bar/routines-list/routine-list-item/routine-list-item.component';
+import { RoomsListComponent } from './side-bar/rooms-list/rooms-list.component';
+import { RoomsListItemComponent } from './side-bar/rooms-list/rooms-list-item/rooms-list-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { RoutineListItemComponent } from './side-bar/routines-list/routine-list-
     BodyComponent,
     RightSideBarComponent,
     RoutinesListComponent,
-    RoutineListItemComponent
+    RoutineListItemComponent,
+    RoomsListComponent,
+    RoomsListItemComponent
   ],
   imports: [
     BrowserModule
