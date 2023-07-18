@@ -16,11 +16,13 @@
 .nav-middle-bar{
     background-color: #eaeaec;
     height: 100vh;
-    width: 60%;
+    width: 55%;
 }
 
 .nav-right-bar{
     right: 0px;
+    width: 25%;
+    display: inline-block;
     background-color: #d1d7e0;
     box-shadow: 1px 10px 10px 1px #506d8d;
 }

@@ -1,0 +1,31 @@
+.weather-image {
+    height: 10vh;
+    margin: 10px;
+}
+
+.weather-status {
+    display: inline-flex;
+    margin: 10px;
+}
+
+.weather-data {
+    display: inline-block;
+    margin-left: 1px;
+}
+
+.weather-info-row {
+    display: inline-flex;
+    justify-content:space-evenly;
+    overflow-x: auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {  
+    .weather-image {
+        height: 15vh;
+    }
+}
+
+.weather-header {
+    margin-left: 10px;
+}

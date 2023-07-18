@@ -1,4 +1,4 @@
 .rooms-list {
     height: 40vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
