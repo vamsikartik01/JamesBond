@@ -23,16 +23,19 @@ export class AppComponent {
 
   @HostListener('window:resize',['$event'])
   onWindowResize(event: Event) {
+    console.log(window.innerWidth)
     this.isMobile = window.innerWidth <= 768;
     this.isNavbar = window.innerWidth <= 768;
-    this.isSidebar = window.innerWidth <= 768;
-    this.isRightbar = window.innerWidth <= 768;
+    this.isSidebar = window.innerWidth >= 768;
+    this.isRightbar = window.innerWidth >= 768;
   }
 
   ngOnInit() {
     this.isMobile = window.innerWidth <= 768;
     this.isNavbar = window.innerWidth <= 768;
-    this.isSidebar = window.innerWidth <= 768;
-    this.isRightbar = window.innerWidth <= 768;
+    this.isSidebar = window.innerWidth >= 768;
+    this.isRightbar = window.innerWidth >= 768;
+    console.log(window.innerWidth)
+    console.log(this.isNavbar,this.isMobile,this.isSidebar,this.isRightbar)
   }
 }
