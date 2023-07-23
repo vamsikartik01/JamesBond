@@ -26,4 +26,3 @@ export class WeatherComponent {
   ]
 }
 
-//https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=metric&appid=557a6bcec20fdacb549cbed37d7c25c0
