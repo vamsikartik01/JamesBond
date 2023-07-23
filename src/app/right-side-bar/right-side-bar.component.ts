@@ -9,6 +9,8 @@ export class RightSideBarComponent {
   @Input() enableRightbarButton: boolean = false;
   @Output() toggleRight = new EventEmitter<boolean>()
 
+  note: string = "This is a note"
+
   toggleRightbar(): void{
     this.toggleRight.emit(true);
   }

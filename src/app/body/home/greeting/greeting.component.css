@@ -1,0 +1,14 @@
+:host {
+    width: 100%;
+}
+
+.greeting {
+    margin: 2%;
+    width: 96%;
+    height: 20%;
+    background-color: #506d8d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+

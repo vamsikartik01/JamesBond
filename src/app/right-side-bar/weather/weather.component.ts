@@ -20,8 +20,10 @@ export class WeatherComponent {
     {'icon':'03.png','parameter':'Humidity','value':'92 %'},
   ];
   infoItems2: {'icon':string,'parameter':string,'value':string}[] = [
-    {'icon':'04.png','parameter':'Visibility','value':'9 km'},
-    {'icon':'05.png','parameter':'Air Pressure','value':'999 hPa'},
+    {'icon':'05.png','parameter':'Visibility','value':'9 km'},
+    {'icon':'04.png','parameter':'Air Pressure','value':'999 hPa'},
     {'icon':'06.png','parameter':'Air Quality','value':'37'}
   ]
 }
+
+//https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=metric&appid=557a6bcec20fdacb549cbed37d7c25c0

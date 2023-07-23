@@ -12,6 +12,10 @@ import { RoomsListComponent } from './side-bar/rooms-list/rooms-list.component';
 import { RoomsListItemComponent } from './side-bar/rooms-list/rooms-list-item/rooms-list-item.component';
 import { WeatherComponent } from './right-side-bar/weather/weather.component';
 import { WeatherInfoComponent } from './right-side-bar/weather/weather-info/weather-info.component';
+import { NotesNewComponent } from './right-side-bar/notes-new/notes-new.component';
+import { GreetingComponent } from './body/home/greeting/greeting.component';
+import { NoteViewerComponent } from './body/home/note-viewer/note-viewer.component';
+import { HomeComponent } from './body/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { WeatherInfoComponent } from './right-side-bar/weather/weather-info/weat
     RoomsListComponent,
     RoomsListItemComponent,
     WeatherComponent,
-    WeatherInfoComponent
+    WeatherInfoComponent,
+    NotesNewComponent,
+    GreetingComponent,
+    NoteViewerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule
