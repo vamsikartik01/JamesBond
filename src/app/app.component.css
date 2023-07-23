@@ -11,6 +11,7 @@
     height:100vh;
     box-shadow: 1px 10px 10px 1px #506d8d;
     padding: 10px;
+    min-height: fit-content;
 }
 
 .nav-middle-bar{
@@ -25,6 +26,7 @@
     display: inline-block;
     background-color: #d1d7e0;
     box-shadow: 1px 10px 10px 1px #506d8d;
+    min-height: fit-content;
 }
 
 .collapse {

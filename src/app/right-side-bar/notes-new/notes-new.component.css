@@ -1,0 +1,14 @@
+:host {
+    width: 100%;
+    display: inline-block;
+}
+
+.note-component{
+    text-align: center;
+}
+
+.new-note-input{
+    width: 90%;
+    margin-left: 5%;
+    height: 50px;
+}

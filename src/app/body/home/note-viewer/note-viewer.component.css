@@ -1,0 +1,12 @@
+:host {
+    width: 100%;
+}
+
+.note-viewer {
+    margin: 2%;
+    width: 96%;
+    height: 10%;
+    background-color: #f2e9d7;
+    padding: 10px;
+    border-radius: 5px;
+}
