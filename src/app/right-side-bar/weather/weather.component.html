@@ -1,0 +1,21 @@
+<div class="weather-widget">
+    <div class="weather-header">
+        <h3>{{ City }}</h3>
+        <p>{{ State }}, {{Country}}</p>
+    </div>
+    <div class="weather-status">
+        <img src="../../../assets/weather/10d.png" alt="weather.jpg" class="weather-image">
+        <div class="weather-data">
+            <h2>{{ temp }}</h2>
+            <p>{{ description }}</p>
+            <p>{{minTemp}}/{{maxTemp}}</p>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="weather-info-row">
+        <app-weather-info *ngFor="let infoItem of infoItems1" [itemData]="infoItem"></app-weather-info>
+    </div>
+    <div class="weather-info-row">
+        <app-weather-info *ngFor="let infoItem of infoItems2" [itemData]="infoItem"></app-weather-info>
+    </div>
+</div>

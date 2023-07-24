@@ -1,0 +1,7 @@
+<div>
+    <button class="btn right" *ngIf="enableRightbarButton" (click)="toggleRightbar()" style="float: right;">Back</button>
+</div>
+<div style="width: 100%;">
+    <app-weather></app-weather>
+</div>
+<app-notes-new [note]="note"></app-notes-new>

@@ -1,5 +1,6 @@
-<app-nav-bar *ngIf="isNavbar" (toggleNavbar)="onToggleNavbar()"></app-nav-bar>
+<app-nav-bar *ngIf="isNavbar" (toggleNavbar)="onToggleNavbar()" (toggleRightbar)="onToggleRightbar()"></app-nav-bar>
 <div class="row-main">
-    <app-side-bar [ngClass]="{'nav-side-bar':true,'collapse': isNavbar}" (toggledSidebar)="onToggleNavbar()" [enableToggleButton]="isMobile"></app-side-bar>
+    <app-side-bar [ngClass]="{'nav-side-bar':true,'collapse': !isSidebar}" (toggledSidebar)="onToggleNavbar()" [enableToggleButton]="isMobile"></app-side-bar>
     <app-body class="nav-middle-bar"></app-body>
+    <app-right-side-bar [ngClass]="{'nav-side-bar':true,'nav-right-bar':true,'collapse': !isRightbar}" (toggleRight)="onToggleRightbar()" [enableRightbarButton]="isMobile"></app-right-side-bar>
 </div>

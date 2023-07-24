@@ -1,0 +1,10 @@
+.weather-info-item {
+     padding: 5px;
+     border-radius: 5px;
+     text-align: center;
+     margin: 5px;
+}
+
+.weather-info-img {
+    height: 25px;
+}

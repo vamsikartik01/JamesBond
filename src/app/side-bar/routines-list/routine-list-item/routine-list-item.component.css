@@ -1,0 +1,22 @@
+.routine-item {
+    margin: 5px;
+    height: 10vh;
+    width: 10vh;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #d1d7e0;
+}
+
+.routine-item:hover{
+    background-color: #506d8d;
+    color: white;
+}
+
+@media (max-width: 768px) {  
+    .routine-item {
+        width: 15vh;
+        height: 15vh;
+    }
+}
