@@ -1,15 +1,8 @@
 <div class="control-panel">
+    <div class="room-title">
+        <h1>{{ deviceId }}</h1>
+    </div>
     <div class="control-panel-row">
-        <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
-    <app-device></app-device>
+        <app-device *ngFor="let device of devices" [deviceItem]="device" ></app-device>
     </div>
 </div>

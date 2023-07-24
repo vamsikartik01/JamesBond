@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./rooms-list-item.component.css']
 })
 export class RoomsListItemComponent {
-  @Input() roomItem: {'name': string} = {'name':''};
+  @Input() roomItem: {'id':string,'name': string} = {'id':'','name':''};
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-device',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./device.component.css']
 })
 export class DeviceComponent {
+  @Input() deviceItem: {'name': string,'type':string,'status':boolean};
 
+  toggleStatus(){
+    this.deviceItem.status = !this.deviceItem.status;
+  }
 }

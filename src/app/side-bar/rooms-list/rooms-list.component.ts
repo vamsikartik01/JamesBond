@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./rooms-list.component.css']
 })
 export class RoomsListComponent {
-  roomsList: {'name':string}[] = [{'name': 'Room 1'},{'name': 'Room 2'},{'name': 'Room 3'},{'name': 'Room 4'},{'name': 'Room 5'},{'name': 'Room 6'}]
+  roomsList: {'id':string, 'name':string}[] = [{'id':'1','name': 'Room 1'},{'id':'2','name': 'Room 2'},{'id':'3','name': 'Room 3'},{'id':'4','name': 'Room 4'},{'id':'5','name': 'Room 5'},{'id':'6','name': 'Room 6'}]
 }
