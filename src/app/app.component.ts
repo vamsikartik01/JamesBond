@@ -24,10 +24,10 @@ export class AppComponent {
   @HostListener('window:resize',['$event'])
   onWindowResize(event: Event) {
     console.log(window.innerWidth)
-    this.isMobile = window.innerWidth <= 768;
-    this.isNavbar = window.innerWidth <= 768;
-    this.isSidebar = window.innerWidth >= 768;
-    this.isRightbar = window.innerWidth >= 768;
+    // this.isMobile = window.innerWidth <= 768;
+    // this.isNavbar = window.innerWidth <= 768;
+    // this.isSidebar = window.innerWidth >= 768;
+    // this.isRightbar = window.innerWidth >= 768;
   }
 
   ngOnInit() {
