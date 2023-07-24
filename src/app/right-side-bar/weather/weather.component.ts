@@ -25,4 +25,3 @@ export class WeatherComponent {
     {'icon':'06.png','parameter':'Air Quality','value':'37'}
   ]
 }
-

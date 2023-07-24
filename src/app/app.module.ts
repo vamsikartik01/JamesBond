@@ -16,6 +16,8 @@ import { NotesNewComponent } from './right-side-bar/notes-new/notes-new.componen
 import { GreetingComponent } from './body/home/greeting/greeting.component';
 import { NoteViewerComponent } from './body/home/note-viewer/note-viewer.component';
 import { HomeComponent } from './body/home/home.component';
+import { ControlPanelComponent } from './body/control-panel/control-panel.component';
+import { DeviceComponent } from './body/control-panel/device/device.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { HomeComponent } from './body/home/home.component';
     NotesNewComponent,
     GreetingComponent,
     NoteViewerComponent,
-    HomeComponent
+    HomeComponent,
+    ControlPanelComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule
