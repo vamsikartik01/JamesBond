@@ -18,6 +18,7 @@ import { NoteViewerComponent } from './body/home/note-viewer/note-viewer.compone
 import { HomeComponent } from './body/home/home.component';
 import { ControlPanelComponent } from './body/control-panel/control-panel.component';
 import { DeviceComponent } from './body/control-panel/device/device.component';
+import { NoteService } from './services/notes.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { DeviceComponent } from './body/control-panel/device/device.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
