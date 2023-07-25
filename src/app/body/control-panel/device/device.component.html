@@ -4,7 +4,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/2779/2779262.png" alt="{{deviceItem.type}}.png" class="device-img">
         <div style="display: inline-block;width: 50%" >
             <div style="margin: 5px;" *ngIf="!deviceItem.status"><button class="btn btn-success" (click)="toggleStatus()">On</button></div>
-            <div *ngIf="deviceItem.status" ><button class="btn btn-danger" (click)="toggleStatus()">Off</button>
-            </div></div>
+            <div style="margin: 5px;" *ngIf="deviceItem.status" ><button class="btn btn-danger" (click)="toggleStatus()">Off</button></div>
+            <div><button class="btn btn-primary" [routerLink]="['/adddevice',deviceItem.room,roomId]" [queryParams]="{deviceid:deviceItem.id,edit:true}">Edit</button></div>
     </div>
 </div>

@@ -1,61 +1,66 @@
 import { Device } from "../models/device.model";
 
 export class ControlPanelService {
-    private currentDevices: Device[] = [
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',true),
-    ];
-
-    private roomOne: Device[] = [
-        new Device('Tube Light 1','light',false),
-        new Device('Tube Light 1','light',false),
-        new Device('Tube Light 1','light',false),
-        new Device('Tube Light 1','light',false),
-        new Device('Tube Light 1','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',true),
-    ];
-
-    private roomTwo: Device[] = [
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light 2','light',false),
-        new Device('Tube Light','light',true),
+    private allDevices: Device[] = [
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 3'),
+        new Device('Tube Light','light',true, 'Room 3'),
+        new Device('Tube Light 1','light',false, 'Room 1'),
+        new Device('Tube Light 1','light',false, 'Room 1'),
+        new Device('Tube Light 1','light',false, 'Room 1'),
+        new Device('Tube Light 1','light',false, 'Room 1'),
+        new Device('Tube Light 1','light',false, 'Room 1'),
+        new Device('Tube Light','light',false, 'Room 1'),
+        new Device('Tube Light','light',false, 'Room 1'),
+        new Device('Tube Light','light',true, 'Room 1'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light 2','light',false, 'Room 2'),
+        new Device('Tube Light','light',true, 'Room 2'),
     ];
 
     private favoriteDevices: Device[] = [
-        new Device('Tube Light fav','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light fav','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
-        new Device('Tube Light','light',false),
+        new Device('Tube Light fav','light',false, 'Room 2'),
+        new Device('Tube Light','light',false, 'Room 2'),
+        new Device('Tube Light','light',false, 'Room 4'),
+        new Device('Tube Light','light',false, 'Room 2'),
+        new Device('Tube Light fav','light',false, 'Room 3'),
+        new Device('Tube Light','light',false, 'Room 1'),
+        new Device('Tube Light','light',false, 'Room 4'),
+        new Device('Tube Light','light',false, 'Room 1'),
     ];
 
-    getCurrentDevices(id: string) {
-        if (id==='1'){
-            return this.roomOne.slice()
-        } else if(id==='2'){
-            return this.roomTwo.slice()
-        }else{
-            return this.currentDevices.slice()
-        }   
+    getCurrentDevices(id: string, name: string) {
+        return this.allDevices.filter((obj) => obj.room === name).slice()
+    }
+
+    getAllDevices(){
+        return this.allDevices.slice();
     }
 
     getFavDevices(){
         return this.favoriteDevices.slice();
+    }
+
+    addDevice(name: string, type: string, roomname: string){
+        this.allDevices.push(new Device(name, type, false, roomname));
+    }
+
+    editDevice(id: string, name: string, type: string){
+        this.allDevices.forEach((obj)=>{
+            if(obj['id']===id){
+                obj.name = name;
+                obj.type = type;
+            }
+        });
     }
 }

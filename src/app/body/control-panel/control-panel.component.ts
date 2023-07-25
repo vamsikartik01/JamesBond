@@ -20,12 +20,13 @@ export class ControlPanelComponent {
 
   ngOnInit(){
     this.deviceId = this.route.snapshot.params['id'];
-    this.devices = this.controlPanelService.getCurrentDevices(this.deviceId)
+    this.roomName = this.roomService.getRoom(this.deviceId)['name'];
+    this.devices = this.controlPanelService.getCurrentDevices(this.deviceId, this.roomName)
     this.route.params.subscribe(
       (params: Params) => {
         this.deviceId = params['id']
-        this.devices = this.controlPanelService.getCurrentDevices(this.deviceId)
         this.roomName = this.roomService.getRoom(this.deviceId)['name'];
+        this.devices = this.controlPanelService.getCurrentDevices(this.deviceId, this.roomName)
       }
     );
   }

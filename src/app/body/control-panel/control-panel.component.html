@@ -1,8 +1,11 @@
 <div class="control-panel">
     <div class="room-title">
         <h1>{{ roomName }}</h1>
+        <button class="btn btn-success" [routerLink]="['/adddevice',roomName,deviceId]">Add Device</button>
+        <button class="btn btn-success" [routerLink]="['/addroom']" [queryParams]="{roomid:deviceId,edit:true}">Edit Room</button>
     </div>
+    
     <div class="control-panel-row">
-        <app-device *ngFor="let device of devices" [deviceItem]="device" ></app-device>
+        <app-device *ngFor="let device of devices" [deviceItem]="device" [roomId]="deviceId" ></app-device>
     </div>
 </div>

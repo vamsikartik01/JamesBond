@@ -1,0 +1,11 @@
+<div class="add-room">
+    <div class="heading">
+        <h2>Add a new Room</h2>
+    </div>
+    <div class="room-form">
+        <input type="text" #roomname class="room-form-input" id="roomname" name="roomname" placeholder="Enter Room Name">
+        <br/><br/>
+        <button *ngIf="!editRoom" class="btn btn-primary" (click)="addRomm()">Create Room</button>
+        <button *ngIf="editRoom" class="btn btn-primary" (click)="editRoomName()">Save Room</button>
+    </div>
+</div>
