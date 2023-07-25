@@ -1,35 +1,48 @@
+import { Device } from "../models/device.model";
+
 export class ControlPanelService {
-    private currentDevices: {'name': string,'type':string,'status':boolean}[] = [
-        {'name':'Tube Light','type':'light','status':false},
-        {'name':'Ceiling Light - 1','type':'light','status':false},
-        {'name':'Bed Fan','type':'fan','status':false},
-        {'name':'table fan','type':'fan','status':true},
-        {'name':'Ceiling light 2','type':'light','status':false},
-        {'name':'Ac','type':'ac','status':false},
-        {'name':'speakers','type':'sound','status':false},
-        {'name':'Tv','type':'tv','status':false}
+    private currentDevices: Device[] = [
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',true),
     ];
 
-    private roomOne: {'name': string,'type':string,'status':boolean}[] = [
-        {'name':'Tube Light 1','type':'light','status':false},
-        {'name':'Ceiling Light - 1','type':'light','status':false},
-        {'name':'Bed Fan','type':'fan','status':false},
-        {'name':'table fan','type':'fan','status':true},
-        {'name':'Ceiling light 2','type':'light','status':false},
-        {'name':'Ac','type':'ac','status':false},
-        {'name':'speakers','type':'sound','status':false},
-        {'name':'Tv','type':'tv','status':false}
+    private roomOne: Device[] = [
+        new Device('Tube Light 1','light',false),
+        new Device('Tube Light 1','light',false),
+        new Device('Tube Light 1','light',false),
+        new Device('Tube Light 1','light',false),
+        new Device('Tube Light 1','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',true),
     ];
 
-    private roomTwo: {'name': string,'type':string,'status':boolean}[] = [
-        {'name':'Tube Light 2','type':'light','status':false},
-        {'name':'Ceiling Light - 1','type':'light','status':false},
-        {'name':'Bed Fan','type':'fan','status':false},
-        {'name':'table fan','type':'fan','status':true},
-        {'name':'Ceiling light 2','type':'light','status':false},
-        {'name':'Ac','type':'ac','status':false},
-        {'name':'speakers','type':'sound','status':false},
-        {'name':'Tv','type':'tv','status':false}
+    private roomTwo: Device[] = [
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light 2','light',false),
+        new Device('Tube Light','light',true),
+    ];
+
+    private favoriteDevices: Device[] = [
+        new Device('Tube Light fav','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light fav','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
+        new Device('Tube Light','light',false),
     ];
 
     getCurrentDevices(id: string) {
@@ -40,5 +53,9 @@ export class ControlPanelService {
         }else{
             return this.currentDevices.slice()
         }   
+    }
+
+    getFavDevices(){
+        return this.favoriteDevices.slice();
     }
 }
