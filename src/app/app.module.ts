@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -18,6 +19,16 @@ import { NoteViewerComponent } from './body/home/note-viewer/note-viewer.compone
 import { HomeComponent } from './body/home/home.component';
 import { ControlPanelComponent } from './body/control-panel/control-panel.component';
 import { DeviceComponent } from './body/control-panel/device/device.component';
+import { NoteService } from './services/notes.service';
+import { ControlPanelService } from './services/controlpanel.service';
+import { RoomService } from './services/rooms.service';
+import { FavoritesComponent } from './body/home/favorites/favorites.component';
+import { DeviceInfoComponent } from './body/home/favorites/device-info/device-info.component';
+
+const appRoutes: Routes = [
+  { path: '',component:HomeComponent },
+  { path: 'room/:id',component:ControlPanelComponent },
+];
 
 @NgModule({
   declarations: [
@@ -37,12 +48,15 @@ import { DeviceComponent } from './body/control-panel/device/device.component';
     NoteViewerComponent,
     HomeComponent,
     ControlPanelComponent,
-    DeviceComponent
+    DeviceComponent,
+    FavoritesComponent,
+    DeviceInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [NoteService, ControlPanelService, RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

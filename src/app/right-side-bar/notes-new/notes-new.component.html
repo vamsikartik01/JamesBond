@@ -1,6 +1,6 @@
 <div class="note-component">
     <h4>Leave a Note</h4>
-    <textarea class="new-note-input" [placeholder]="note"></textarea>
-    <button class="btn btn-primary"> Create Note</button>
-    <button class="btn btn-danger"> Clear Note</button>
+    <textarea #noteText class="new-note-input" placeholder="Enter Note">{{ note  }}</textarea>
+    <button class="btn btn-primary" (click)="updateNote()"> Create Note</button>
+    <button class="btn btn-danger" (click)="clearNote()"> Clear Note</button>
 </div>

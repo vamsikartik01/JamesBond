@@ -1,7 +1,7 @@
-<div class="device-item">
+<div class="device-info-item">
     <p>{{ deviceItem.name }}</p>
     <div style="display: inline-flex;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779262.png" alt="{{deviceItem.type}}.png" class="device-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779262.png" alt="{{deviceItem.type}}.png" class="device-info-img">
         <div style="display: inline-block;width: 50%" >
             <div style="margin: 5px;" *ngIf="!deviceItem.status"><button class="btn btn-success" (click)="toggleStatus()">On</button></div>
             <div *ngIf="deviceItem.status" ><button class="btn btn-danger" (click)="toggleStatus()">Off</button>
