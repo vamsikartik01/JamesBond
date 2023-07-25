@@ -10,6 +10,7 @@ export class AppComponent {
   isMobile: boolean = false;
   isRightbar: boolean = false;
   isSidebar: boolean = false;
+  prevWidth: number;
 
   onToggleNavbar(): void{
     this.isNavbar = !this.isNavbar
@@ -23,19 +24,25 @@ export class AppComponent {
 
   @HostListener('window:resize',['$event'])
   onWindowResize(event: Event) {
-    console.log(window.innerWidth)
-    // this.isMobile = window.innerWidth <= 768;
-    // this.isNavbar = window.innerWidth <= 768;
-    // this.isSidebar = window.innerWidth >= 768;
-    // this.isRightbar = window.innerWidth >= 768;
+    if ((this.prevWidth <= 768 && window.innerWidth > 768) || (this.prevWidth >= 768 && window.innerWidth < 768)){
+      this.isMobile = window.innerWidth <= 768;
+      this.isNavbar = window.innerWidth <= 768;
+      this.isSidebar = window.innerWidth > 768;
+      this.isRightbar = window.innerWidth > 768;
+      this.prevWidth = window.innerWidth;
+      console.log(this.prevWidth,window.innerWidth)
+      console.log(this.isNavbar,this.isMobile,this.isSidebar,this.isRightbar)
+    }
   }
 
   ngOnInit() {
     this.isMobile = window.innerWidth <= 768;
     this.isNavbar = window.innerWidth <= 768;
-    this.isSidebar = window.innerWidth >= 768;
-    this.isRightbar = window.innerWidth >= 768;
-    console.log(window.innerWidth)
+    this.isSidebar = window.innerWidth > 768;
+    this.isRightbar = window.innerWidth > 768;
+    this.prevWidth = window.innerWidth;
+    console.log(this.prevWidth,window.innerWidth)
     console.log(this.isNavbar,this.isMobile,this.isSidebar,this.isRightbar)
   }
 }
+ 

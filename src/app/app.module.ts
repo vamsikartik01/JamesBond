@@ -21,6 +21,9 @@ import { ControlPanelComponent } from './body/control-panel/control-panel.compon
 import { DeviceComponent } from './body/control-panel/device/device.component';
 import { NoteService } from './services/notes.service';
 import { ControlPanelService } from './services/controlpanel.service';
+import { RoomService } from './services/rooms.service';
+import { FavoritesComponent } from './body/home/favorites/favorites.component';
+import { DeviceInfoComponent } from './body/home/favorites/device-info/device-info.component';
 
 const appRoutes: Routes = [
   { path: '',component:HomeComponent },
@@ -45,13 +48,15 @@ const appRoutes: Routes = [
     NoteViewerComponent,
     HomeComponent,
     ControlPanelComponent,
-    DeviceComponent
+    DeviceComponent,
+    FavoritesComponent,
+    DeviceInfoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [NoteService, ControlPanelService],
+  providers: [NoteService, ControlPanelService, RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
