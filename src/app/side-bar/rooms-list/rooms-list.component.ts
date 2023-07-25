@@ -14,5 +14,11 @@ export class RoomsListComponent {
 
   ngOnInit(){
     this.roomsList = this.roomService.getRooms()  
+
+    this.roomService.roomEvent.subscribe(
+      (rooms: Room[]) => {
+        this.roomsList = rooms;
+      }
+    );
   }
 }

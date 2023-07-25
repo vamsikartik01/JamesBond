@@ -24,10 +24,14 @@ import { ControlPanelService } from './services/controlpanel.service';
 import { RoomService } from './services/rooms.service';
 import { FavoritesComponent } from './body/home/favorites/favorites.component';
 import { DeviceInfoComponent } from './body/home/favorites/device-info/device-info.component';
+import { AddRoomComponent } from './body/add-room/add-room.component';
+import { AddDeviceComponent } from './body/add-device/add-device.component';
 
 const appRoutes: Routes = [
   { path: '',component:HomeComponent },
   { path: 'room/:id',component:ControlPanelComponent },
+  { path: 'addroom',component:AddRoomComponent},
+  { path: 'adddevice/:roomname/:roomid',component:AddDeviceComponent },
 ];
 
 @NgModule({
@@ -50,7 +54,9 @@ const appRoutes: Routes = [
     ControlPanelComponent,
     DeviceComponent,
     FavoritesComponent,
-    DeviceInfoComponent
+    DeviceInfoComponent,
+    AddRoomComponent,
+    AddDeviceComponent
   ],
   imports: [
     BrowserModule,

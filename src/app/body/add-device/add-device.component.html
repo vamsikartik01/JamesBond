@@ -1,0 +1,12 @@
+<div class="add-room">
+    <div class="heading">
+        <h2>Add a new Room</h2>
+    </div>
+    <div class="device-form">
+        <input type="text" #devicename class="device-form-input" id="roomname" name="roomname" placeholder="Enter device Name">
+        <input type="text" #devicetype class="device-form-input" id="roomname" name="roomname" placeholder="Enter device Type">
+        <br/><br/>
+        <button *ngIf="!editDevice" class="btn btn-primary" (click)="addDevice()" >Create Device</button>
+        <button *ngIf="editDevice" class="btn btn-primary" (click)="editDeviceInfo()" >Save Device</button>
+    </div>
+</div>

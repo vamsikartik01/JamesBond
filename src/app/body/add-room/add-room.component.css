@@ -1,0 +1,31 @@
+.heading {
+    margin: 2%;
+    width: 96%;
+    height: 20%;
+    background-color: #506d8d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.room-form{
+    text-align: center;
+    width: 70%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+    display: block;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.room-form-input {
+    width: 60%;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.room-form-button{
+
+}
