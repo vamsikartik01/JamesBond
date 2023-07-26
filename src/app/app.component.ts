@@ -30,8 +30,6 @@ export class AppComponent {
       this.isSidebar = window.innerWidth > 768;
       this.isRightbar = window.innerWidth > 768;
       this.prevWidth = window.innerWidth;
-      console.log(this.prevWidth,window.innerWidth)
-      console.log(this.isNavbar,this.isMobile,this.isSidebar,this.isRightbar)
     }
   }
 
@@ -41,8 +39,6 @@ export class AppComponent {
     this.isSidebar = window.innerWidth > 768;
     this.isRightbar = window.innerWidth > 768;
     this.prevWidth = window.innerWidth;
-    console.log(this.prevWidth,window.innerWidth)
-    console.log(this.isNavbar,this.isMobile,this.isSidebar,this.isRightbar)
   }
 }
  

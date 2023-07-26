@@ -19,7 +19,6 @@ export class NoteViewerComponent {
     .subscribe(
       (notetext: string) => {
         this.note = notetext;
-        console.log("sub",this.note);
       }
     );
   }

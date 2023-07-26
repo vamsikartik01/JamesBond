@@ -31,4 +31,11 @@ export class RoomService {
             }
         });
     }
+
+    deleteRoom(id: string){
+        this.rooms = this.rooms.filter(
+            (obj) => obj.id !== id
+        )
+        this.roomEvent.emit(this.rooms);
+    }
 }

@@ -1,6 +1,10 @@
 import { Device } from "../models/device.model";
 
 export class ControlPanelService {
+    private deviceTypes: string[] = [
+        'default','fan', 'light', 'bulb', 'tv', 'ac', 'server'
+    ]
+
     private allDevices: Device[] = [
         new Device('Tube Light','light',false, 'Room 3'),
         new Device('Tube Light','light',false, 'Room 3'),
@@ -62,5 +66,15 @@ export class ControlPanelService {
                 obj.type = type;
             }
         });
+    }
+
+    deleteDevice(id: string){
+        this.allDevices = this.allDevices.filter(
+            (obj) => obj.id !== id
+        );
+    }
+
+    getDeviceTypes(){
+        return this.deviceTypes;
     }
 }
