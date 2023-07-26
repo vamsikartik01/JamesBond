@@ -7,5 +7,6 @@
         <br/><br/>
         <button *ngIf="!editRoom" class="btn btn-primary" (click)="addRomm()">Create Room</button>
         <button *ngIf="editRoom" class="btn btn-primary" (click)="editRoomName()">Save Room</button>
+        <button *ngIf="editRoom" class="btn btn-danger" (click)="deleteRoom()">Delete Room</button>
     </div>
 </div>

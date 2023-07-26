@@ -18,6 +18,7 @@ export class AddDeviceComponent {
 
   editDevice: boolean = false;
   deviceId: string;
+  deviceTypes: string[];
 
   constructor(private controlPanelService: ControlPanelService,
     private route: ActivatedRoute, private router: Router){}
@@ -35,6 +36,7 @@ export class AddDeviceComponent {
       (params: Params) => {
         this.editDevice = params['edit'];
     });
+    this.deviceTypes = this.controlPanelService.getDeviceTypes();
   }
 
   addDevice(){
@@ -58,4 +60,11 @@ export class AddDeviceComponent {
     alert("Device : "+this.newDeviceName+" is created!");
     this.router.navigate(['/room',this.newRoomId]);
   }
+
+  deleteDeviceInfo(){
+    this.controlPanelService.deleteDevice(this.deviceId);
+    alert("Successfully deleted the device!");
+    this.router.navigate(['/room',this.newRoomId]);
+  }
+
 }
