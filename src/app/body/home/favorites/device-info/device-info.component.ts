@@ -12,4 +12,5 @@ export class DeviceInfoComponent {
   toggleStatus(){
     this.deviceItem.status = !this.deviceItem.status;
   }
+
 }

@@ -5,10 +5,10 @@ import { Room } from "../models/room.model";
 export class RoomService {
     roomEvent = new EventEmitter<Room[]>();
     private rooms: Room[] = [
-        new Room('1','Room 1'),
-        new Room('2','Room 2'),
-        new Room('3','Room 3'),
-        new Room('4','Room 4'),
+        new Room('1','Hall'),
+        new Room('2','Lewis Room'),
+        new Room('3','Max Room'),
+        new Room('4','Lando Room'),
     ];
 
     getRooms(){

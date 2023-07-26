@@ -26,6 +26,7 @@ import { FavoritesComponent } from './body/home/favorites/favorites.component';
 import { DeviceInfoComponent } from './body/home/favorites/device-info/device-info.component';
 import { AddRoomComponent } from './body/add-room/add-room.component';
 import { AddDeviceComponent } from './body/add-device/add-device.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '',component:HomeComponent },
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [NoteService, ControlPanelService, RoomService],

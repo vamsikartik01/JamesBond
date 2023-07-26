@@ -5,28 +5,30 @@
 }
 
 .nav-side-bar{
-    background-color: #a3c0dd;
+    background-color: #0C0032;
     display: inline-block;
     width: 20%;
     height:100vh;
-    box-shadow: 1px 10px 10px 1px #506d8d;
     padding: 10px;
     min-height: fit-content;
+    color: white;
 }
 
 .nav-middle-bar{
-    background-color: #eaeaec;
+    background-color: #0C0032;
     height: 100vh;
     width: 55%;
+    box-shadow: 1px 1px 10px 1px #190061 inset;
+    color: white;
 }
 
 .nav-right-bar{
     right: 0px;
     width: 25%;
     display: inline-block;
-    background-color: #d1d7e0;
-    box-shadow: 1px 10px 10px 1px #506d8d;
+    background-color: #0C0032;
     min-height: fit-content;
+    padding: 10px;
 }
 
 .collapse {
@@ -37,15 +39,17 @@
     .nav-side-bar{
         width: 80%;
         position: fixed;
-        background-color: #a3c0dd;
+        box-shadow: 1px 10px 10px 1px #0C0032;
     }
 
     .nav-middle-bar{
-        width: 95%;
+        width: 100%;
+        box-shadow: none;
+    
     }
 
     .nav-right-bar{
-        background-color: #d1d7e0;
+        box-shadow: 1px 10px 10px 1px #0C0032;
     }
 
 }

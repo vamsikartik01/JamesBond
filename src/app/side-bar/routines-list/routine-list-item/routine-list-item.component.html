@@ -1,4 +1,5 @@
 <div class="routine-item">
     <p>{{routineListItem.name}}</p>
-    <button class="btn btn-toggle" (click)="startRoutine(routineListItem.name)" >Start</button>
+    <a (click)="stopRoutine(routineListItem.name)"><img src="../../../../assets/icons/stop.png" alt="stop.png" class="icon-custom"></a>
+    <a (click)="startRoutine(routineListItem.name)"><img src="../../../../assets/icons/play.png" alt="play.png" class="icon-custom"></a>
 </div>

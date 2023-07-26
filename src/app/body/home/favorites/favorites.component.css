@@ -4,8 +4,23 @@
 
 .favorites {
     width: 96%;
+    max-height:60%;
     margin: 2%;
+    overflow: auto;
 }
+
+/* CSS */
+.favorites::-webkit-scrollbar {
+    width: 8px; /* Adjust this width to your preference */
+  }
+  
+  .favorites::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the thumb transparent */
+  }
+  
+  .favoritesr::-webkit-scrollbar-track {
+    background-color: transparent; /* Make the track transparent */
+  }
 
 .favorites-row {
     display: grid;

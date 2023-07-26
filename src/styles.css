@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background: #eaeaec;
+    background: #0C0032;
+}
+
+.icon-custom {
+    height: 30px;
+    margin: 2px;
 }
