@@ -1,10 +1,10 @@
 <div class="device-info-item">
+    <p>{{ deviceItem.room }}</p>
     <p>{{ deviceItem.name }}</p>
     <div style="display: inline-flex;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779262.png" alt="{{deviceItem.type}}.png" class="device-info-img">
+        <img src="../../../../../assets/device/{{deviceItem.type}}.png" alt="{{deviceItem.type}}.png" class="device-info-img">
         <div style="display: inline-block;width: 50%" >
-            <div style="margin: 5px;" *ngIf="!deviceItem.status"><button class="btn btn-success" (click)="toggleStatus()">On</button></div>
-            <div *ngIf="deviceItem.status" ><button class="btn btn-danger" (click)="toggleStatus()">Off</button>
-            </div></div>
-    </div>
+            <a *ngIf="!deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-off.png" alt="switch-off.png" style="width: 50%;"></a>
+            <a *ngIf="deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-on.png" alt="switch-on.png" style="width: 50%;"></a>
+        </div>
 </div>

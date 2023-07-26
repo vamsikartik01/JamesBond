@@ -8,8 +8,17 @@ import { Device } from 'src/app/models/device.model';
 })
 export class DeviceComponent {
   @Input() deviceItem: Device;
+  @Input() roomId: string;
 
   toggleStatus(){
     this.deviceItem.status = !this.deviceItem.status;
+  }
+
+  starDevice(){
+    this.deviceItem.setFavorite();
+  }
+
+  unStarDevice(){
+    this.deviceItem.removeFavorite();
   }
 }

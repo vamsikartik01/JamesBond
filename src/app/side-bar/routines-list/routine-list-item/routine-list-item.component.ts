@@ -11,4 +11,8 @@ export class RoutineListItemComponent {
   startRoutine(name: string): void {
     alert(name+" started")
   }
+
+  stopRoutine(name: string): void {
+    alert(name+" stopped")
+  }
 }

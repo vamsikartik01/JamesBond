@@ -1,17 +1,16 @@
 .room-item{
-    background-color: #d1d7e0;
+    background-color: transparent;
     padding: 5px;
     /*border: 1px solid black; */
-    margin-bottom: 5px;
     border-radius: 5px;
 }
 
 .room-item:hover{
-    background-color: #506d8d;
+    background-color: #240090;
     color: white;
 }
 
 .activeRoom {
-    background-color: #506d8d;
+    background-color: #240090;
     color: white;
 }

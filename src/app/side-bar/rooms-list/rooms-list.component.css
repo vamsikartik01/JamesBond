@@ -2,3 +2,15 @@
     height: 40vh;
     overflow-y: auto;
 }
+
+.rooms-list::-webkit-scrollbar {
+    width: 8px; 
+  }
+
+  .rooms-list::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+  }
+  
+  .rooms-list::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
