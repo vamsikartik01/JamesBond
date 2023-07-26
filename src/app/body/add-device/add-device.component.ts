@@ -18,6 +18,9 @@ export class AddDeviceComponent {
 
   editDevice: boolean = false;
   deviceId: string;
+  deviceName: string;
+  deviceType: string;
+
   deviceTypes: string[];
 
   constructor(private controlPanelService: ControlPanelService,
@@ -26,6 +29,9 @@ export class AddDeviceComponent {
   ngOnInit(){
     this.editDevice = this.route.snapshot.queryParams['edit'];
     this.deviceId = this.route.snapshot.queryParams['deviceid'];
+    this.deviceName = this.route.snapshot.queryParams['devicename'];
+    this.deviceType = this.route.snapshot.queryParams['devicetype'];
+    if (!this.editDevice) {this.deviceType = 'default'}
     this.route.params.subscribe(
       (params: Params) => {
         this.newRoomName = params['roomname'];

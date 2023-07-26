@@ -1,10 +1,13 @@
 <div class="device-item">
-    <p>{{ deviceItem.name }}</p>
+    <p>{{ deviceItem.name }} </p>
     <div style="display: inline-flex;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2779/2779262.png" alt="{{deviceItem.type}}.png" class="device-img">
+        <img src="../../../../assets/device/{{deviceItem.type}}.png" alt="{{deviceItem.type}}.png" class="device-img">
         <div style="display: inline-block;width: 50%" >
-            <div style="margin: 5px;" *ngIf="!deviceItem.status"><button class="btn btn-success" (click)="toggleStatus()">On</button></div>
-            <div style="margin: 5px;" *ngIf="deviceItem.status" ><button class="btn btn-danger" (click)="toggleStatus()">Off</button></div>
-            <div><button class="btn btn-primary" [routerLink]="['/adddevice',deviceItem.room,roomId]" [queryParams]="{deviceid:deviceItem.id,edit:true}">Edit</button></div>
-    </div>
+            <a *ngIf="!deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-off.png" alt="switch-off.png" style="width: 50%;"></a>
+            <a *ngIf="deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-on.png" alt="switch-on.png" style="width: 50%;"></a>
+            <br>
+            <a [routerLink]="['/adddevice',deviceItem.room,roomId]" [queryParams]="{deviceid:deviceItem.id,devicename:deviceItem.name,devicetype:deviceItem.type,edit:true}"><img src="../../../../assets/icons/edit.png" alt="edit.png" class="icon-custom"></a>
+            <a *ngIf="!deviceItem.isFavorite" (click)="starDevice()"><img src="../../../../assets/icons/unstar.png" alt="unstar.png" class="icon-custom"></a>
+            <a *ngIf="deviceItem.isFavorite" (click)="unStarDevice()"><img src="../../../../assets/icons/star.png" alt="star.png" class="icon-custom"></a>
+        </div>
 </div>

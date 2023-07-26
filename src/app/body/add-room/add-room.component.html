@@ -1,12 +1,15 @@
 <div class="add-room">
     <div class="heading">
-        <h2>Add a new Room</h2>
+        <h2 *ngIf="!editRoom">Add a new Room</h2>
+        <h2 *ngIf="editRoom">Edit Room Name</h2>
     </div>
     <div class="room-form">
-        <input type="text" #roomname class="room-form-input" id="roomname" name="roomname" placeholder="Enter Room Name">
+        <input type="text" #roomname class="room-form-input" id="roomname" name="roomname" placeholder="Enter Room Name" [value]="editRoom ? roomName : ''">
         <br/><br/>
         <button *ngIf="!editRoom" class="btn btn-primary" (click)="addRomm()">Create Room</button>
-        <button *ngIf="editRoom" class="btn btn-primary" (click)="editRoomName()">Save Room</button>
-        <button *ngIf="editRoom" class="btn btn-danger" (click)="deleteRoom()">Delete Room</button>
+        <button *ngIf="editRoom" class="btn btn-primary" style="float: left;" (click)="editRoomName()">Save Room</button>
+        <button *ngIf="editRoom" class="btn btn-danger" style="float: right;" (click)="deleteRoom()">Delete Room</button>
+        <br>
+        <br>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div>
-    <button class="btn right" *ngIf="enableRightbarButton" (click)="toggleRightbar()" style="float: right;">Back</button>
+    <a *ngIf="enableRightbarButton" (click)="toggleRightbar()" style="float: right;"><img src="../../assets/icons/forward.png" class="icon-custom" alt="forward.png"></a>
 </div>
 <div style="width: 100%;">
     <app-weather></app-weather>

@@ -13,4 +13,12 @@ export class DeviceComponent {
   toggleStatus(){
     this.deviceItem.status = !this.deviceItem.status;
   }
+
+  starDevice(){
+    this.deviceItem.setFavorite();
+  }
+
+  unStarDevice(){
+    this.deviceItem.removeFavorite();
+  }
 }

@@ -12,6 +12,7 @@ export class AddRoomComponent {
   newRoomName: string;
   editRoom: boolean = false;
   roomId: string;
+  roomName: string = "";
 
   constructor(private roomService:RoomService, 
     private router: Router, 
@@ -20,6 +21,9 @@ export class AddRoomComponent {
   ngOnInit(){
     this.editRoom = this.route.snapshot.queryParams['edit'];
     this.roomId = this.route.snapshot.queryParams['roomid'];
+    this.roomName = this.route.snapshot.queryParams['roomname'];
+    console.log(this.roomName)
+    if (this.roomName === null){this.roomName=""}
     this.route.queryParams.subscribe(
       (params: Params) => {
         this.editRoom = params['edit'];

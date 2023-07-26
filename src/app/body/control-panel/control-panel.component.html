@@ -1,10 +1,11 @@
 <div class="control-panel">
     <div class="room-title">
         <h1>{{ roomName }}</h1>
-        <button class="btn btn-success" [routerLink]="['/adddevice',roomName,deviceId]">Add Device</button>
-        <button class="btn btn-success" [routerLink]="['/addroom']" [queryParams]="{roomid:deviceId,edit:true}">Edit Room</button>
+        <a  [routerLink]="['/adddevice',roomName,deviceId]" title="Add Device"><img src="../../../assets/icons/add.png" alt="add.png" class="icon-custom"></a>
+        <a  [routerLink]="['/addroom']" [queryParams]="{roomid:deviceId,roomname:roomName,edit:true}" title="Edit Room"><img src="../../../assets/icons/edit.png" alt="delete.png" class="icon-custom"></a>
+        <br>
+        <br>
     </div>
-    
     <div class="control-panel-row">
         <app-device *ngFor="let device of devices" [deviceItem]="device" [roomId]="deviceId" ></app-device>
     </div>
