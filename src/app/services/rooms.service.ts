@@ -9,13 +9,14 @@ import { HubService } from "./hub.service";
     providedIn: 'root'
 })
 export class RoomService {
+    private url: string = "jamesbond.3dns.me"
     roomEvent = new EventEmitter<Room[]>();
     private rooms: Room[];
 
     constructor(private http: HttpClient, private hubService:HubService){}
 
     getRooms() {
-        this.http.get("http://jamesbond.3dns.me:2000/getrooms/1").subscribe(responseData => {
+        this.http.get("http://"+this.url+":2000/getrooms/1").subscribe(responseData => {
             var rooms = Object.values(responseData);
             this.rooms = [];
             rooms.forEach(room => {
@@ -34,7 +35,7 @@ export class RoomService {
     }
 
     addRoom(name: string){
-        var url = "http://jamesbond.3dns.me:2000/addroom/1?name="+name
+        var url = "http://"+this.url+":2000/addroom/1?name="+name
         console.log(url)
         this.http.post(url, {}).subscribe(
             responseData => {
@@ -45,7 +46,7 @@ export class RoomService {
     }
 
     editRoomName(id: string,name: string){
-        var url = "http://jamesbond.3dns.me:2000/editroom/1?id="+id+"&name="+name
+        var url = "http://"+this.url+":2000/editroom/1?id="+id+"&name="+name
         console.log(url)
         this.http.put(url, {}).subscribe(
             responseData => {
@@ -56,7 +57,7 @@ export class RoomService {
     }
 
     deleteRoom(id: string){
-        var url = "http://jamesbond.3dns.me:2000/deleteroom/1?id="+id
+        var url = "http://"+this.url+":2000/deleteroom/1?id="+id
         console.log("delete request ", url)
         this.http.delete(url).subscribe(
             responseData => {
