@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Weather } from 'src/app/models/weather.model';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -6,22 +8,44 @@ import { Component } from '@angular/core';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent {
-  City: string = 'Srikakulam';
+  weatherData = new Weather({});
   State: string = 'Andhra Pradesh';
   Country: string = 'India';
-  temp: string = '25 *C';
+  temp: number = 0;
   description: string = 'light rain';
-  minTemp: string = '22 *C';
-  maxTemp: string = '32 *C';
+  minTemp: number = 0;
+  maxTemp: number = 0;
 
-  infoItems1: {'icon':string,'parameter':string,'value':string}[] = [
-    {'icon':'01.png','parameter':'Feels Like','value':'30*C'},
-    {'icon':'02.png','parameter':'Wind','value':'11 mi/h'},
-    {'icon':'03.png','parameter':'Humidity','value':'92 %'},
+  infoItems1: {'icon':string,'parameter':string,'value':number}[] = [
+    {'icon':'01.png','parameter':'Feels Like','value':0},
+    {'icon':'02.png','parameter':'Wind','value':11},
+    {'icon':'03.png','parameter':'Humidity','value':92},
   ];
-  infoItems2: {'icon':string,'parameter':string,'value':string}[] = [
-    {'icon':'05.png','parameter':'Visibility','value':'9 km'},
-    {'icon':'04.png','parameter':'Air Pressure','value':'999 hPa'},
-    {'icon':'06.png','parameter':'Air Quality','value':'37'}
+  infoItems2: {'icon':string,'parameter':string,'value':number}[] = [
+    {'icon':'05.png','parameter':'Visibility','value':9 },
+    {'icon':'04.png','parameter':'Air Pressure','value':999},
+    {'icon':'06.png','parameter':'Air Quality','value':37}
   ]
+
+  constructor(private weatherService: WeatherService){}
+
+  ngOnInit(){
+    this.weatherService.getWeather();
+    this.weatherService.weatherEvent.subscribe(
+      (weather: Weather) => {
+        this.weatherData = weather;
+        console.log("comp weather", this.weatherData);
+        this.temp = Math.round(this.weatherData.temp);
+        this.minTemp = Math.round(this.weatherData.temp_min);
+        this.maxTemp = Math.round(this.weatherData.temp_max);
+        this.infoItems1[0].value = this.weatherData.feels_like;
+        this.infoItems1[1].value = this.weatherData.speed;
+        this.infoItems1[2].value = this.weatherData.humidity;
+        this.infoItems2[0].value = this.weatherData.visibility/1000;
+        this.infoItems2[1].value = this.weatherData.pressure;
+        this.infoItems2[2].value = this.weatherData.air_quality;
+      }
+    );    
+  }
+
 }

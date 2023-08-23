@@ -1,10 +1,10 @@
 <div class="device-info-item">
-    <p>{{ deviceItem.room }}</p>
+    <p>{{ deviceItem.roomId }}</p>
     <p>{{ deviceItem.name }}</p>
     <div style="display: inline-flex;">
         <img src="../../../../../assets/device/{{deviceItem.type}}.png" alt="{{deviceItem.type}}.png" class="device-info-img">
         <div style="display: inline-block;width: 50%" >
-            <a *ngIf="!deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-off.png" alt="switch-off.png" style="width: 50%;"></a>
-            <a *ngIf="deviceItem.status" (click)="toggleStatus()"><img src="../../../../assets/icons/switch-on.png" alt="switch-on.png" style="width: 50%;"></a>
+            <a *ngIf="!deviceItem.value" (click)="toggleStatusOn()"><img src="../../../../assets/icons/switch-off.png" alt="switch-off.png" style="width: 50%;"></a>
+            <a *ngIf="deviceItem.value" (click)="toggleStatusOff()"><img src="../../../../assets/icons/switch-on.png" alt="switch-on.png" style="width: 50%;"></a>
         </div>
 </div>

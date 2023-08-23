@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
@@ -27,12 +28,18 @@ import { DeviceInfoComponent } from './body/home/favorites/device-info/device-in
 import { AddRoomComponent } from './body/add-room/add-room.component';
 import { AddDeviceComponent } from './body/add-device/add-device.component';
 import { FormsModule } from '@angular/forms';
+import { AddHubComponent } from './body/add-hub/add-hub.component';
+import { HubService } from './services/hub.service';
+import { WeatherService } from './services/weather.service';
+import { WebsocketService } from './services/websocket.service';
+import { HubsListItemComponent } from './side-bar/rooms-list/hubs-list-item/hubs-list-item.component';
 
 const appRoutes: Routes = [
   { path: '',component:HomeComponent },
   { path: 'room/:id',component:ControlPanelComponent },
   { path: 'addroom',component:AddRoomComponent},
   { path: 'adddevice/:roomname/:roomid',component:AddDeviceComponent },
+  { path: 'addhub' ,component:AddHubComponent},
 ];
 
 @NgModule({
@@ -57,14 +64,17 @@ const appRoutes: Routes = [
     FavoritesComponent,
     DeviceInfoComponent,
     AddRoomComponent,
-    AddDeviceComponent
+    AddDeviceComponent,
+    AddHubComponent,
+    HubsListItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule, 
   ],
-  providers: [NoteService, ControlPanelService, RoomService],
+  providers: [NoteService, ControlPanelService, RoomService, HubService, WeatherService, WebsocketService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

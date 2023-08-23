@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./weather-info.component.css']
 })
 export class WeatherInfoComponent {
-  @Input() itemData: {'icon':string,'parameter':string, 'value':string} = {'icon':'','parameter':'','value':''}
+  @Input() itemData: {'icon':string,'parameter':string, 'value':number} = {'icon':'','parameter':'','value':0}
 }

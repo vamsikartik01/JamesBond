@@ -8,6 +8,12 @@
         <select #devicetype class="device-form-input" [(ngModel)]="deviceType">
             <option *ngFor="let type of deviceTypes" [value]="type">{{ type }} </option>
         </select>
+        <select #hubid class="device-form-input" [(ngModel)]="hubId">
+            <option *ngFor="let hub of hubs" [value]="hub.id">{{ hub.name }}</option>
+        </select>
+        <select #hubport class="device-form-input" [(ngModel)]="hubPort">
+            <option *ngFor="let hubport of hubPorts" [value]="hubport">Port {{ hubport }} </option>
+        </select>
         <br/><br/>
         <button *ngIf="!editDevice" class="btn btn-primary" (click)="addDevice()" >Create Device</button>
         <button *ngIf="editDevice" class="btn btn-primary" style="float: left;" (click)="editDeviceInfo()" >Save Device</button>
