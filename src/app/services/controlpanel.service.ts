@@ -7,6 +7,7 @@ import { WebsocketService } from "./websocket.service";
     providedIn: 'root'
 })
 export class ControlPanelService {
+    private url: string = "jamesbond.3dns.me"
     DeviceEvent = new EventEmitter<Device[]>()
     private deviceTypes: string[] = [
         'default','fan', 'light', 'tv', 'ac', 'server'
@@ -25,7 +26,7 @@ export class ControlPanelService {
     }
 
     getAllDevices(){
-        this.http.get("http://jamesbond.3dns.me:2000/getdevices/1").subscribe(responseData => {
+        this.http.get("http://"+this.url+":2000/getdevices/1").subscribe(responseData => {
             console.log(responseData)
             var devices = Object.values(responseData);
             this.devices = [];
@@ -44,7 +45,7 @@ export class ControlPanelService {
 
     addDevice(name: string, type: string, roomId: string, hubId: string, hubPort: string){
         const mode = "output"
-        var url = "http://jamesbond.3dns.me:2000/adddevice/1?name="+name+"&roomId="+roomId+"&hubId="+hubId+"&mode="+mode+"&type="+type+"&hubPort="+hubPort
+        var url = "http://"+this.url+":2000/adddevice/1?name="+name+"&roomId="+roomId+"&hubId="+hubId+"&mode="+mode+"&type="+type+"&hubPort="+hubPort
         console.log(url)
         this.http.post(url, {}).subscribe(
             responseData => {
@@ -55,7 +56,7 @@ export class ControlPanelService {
     }
 
     editDevice(id: string, name: string, type: string, hubId: string, hubPort: string){
-        var url = "http://jamesbond.3dns.me:2000/editdevice/1?id="+id+"&name="+name+"&type="+type+"&hubPort="+hubPort+"&hubId="+hubId
+        var url = "http://"+this.url+":2000/editdevice/1?id="+id+"&name="+name+"&type="+type+"&hubPort="+hubPort+"&hubId="+hubId
         console.log(url)
         this.http.put(url, {}).subscribe(
             responseData => {
@@ -66,7 +67,7 @@ export class ControlPanelService {
     }
 
     deleteDevice(id: string){
-        var url = "http://jamesbond.3dns.me:2000/deletedevice/1?id="+id
+        var url = "http://"+this.url+":2000/deletedevice/1?id="+id
         console.log("delete request ", url)
         this.http.delete(url).subscribe(
             responseData => {
@@ -85,7 +86,7 @@ export class ControlPanelService {
     }
 
     setFavorite(id: string, value: boolean){
-        var url = "http://jamesbond.3dns.me:2000/setfavorite/1?id="+id+"&value="+value
+        var url = "http://"+this.url+":2000/setfavorite/1?id="+id+"&value="+value
         console.log(url)
         this.http.put(url, {}).subscribe(
             responseData => {
@@ -96,7 +97,7 @@ export class ControlPanelService {
     }
 
     setValue(id: string, value: string, hubPort: string, hubRefID: string){
-        var url = "http://jamesbond.3dns.me:2000/setvalue/1?id="+id+"&value="+value+"&hubPort="+hubPort+"&hubRefId="+hubRefID
+        var url = "http://"+this.url+":2000/setvalue/1?id="+id+"&value="+value+"&hubPort="+hubPort+"&hubRefId="+hubRefID
         console.log(url)
         this.http.put(url, {}).subscribe(
             responseData => {

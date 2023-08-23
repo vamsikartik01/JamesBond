@@ -4,10 +4,11 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class WebsocketService {
+    private url: string = "jamesbond.3dns.me"
     private socket: WebSocket;
 
     constructor(){
-        this.socket = new WebSocket('ws://jamesbond.3dns.me:2000/wsjames');
+        this.socket = new WebSocket("ws://"+this.url+":2000/wsjames");
     }
 
     getSocket(): WebSocket {
