@@ -1,71 +1,108 @@
+import { HttpClient } from "@angular/common/http";
 import { Device } from "../models/device.model";
+import { Injectable, EventEmitter } from "@angular/core";
+import { WebsocketService } from "./websocket.service";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ControlPanelService {
+    DeviceEvent = new EventEmitter<Device[]>()
     private deviceTypes: string[] = [
         'default','fan', 'light', 'tv', 'ac', 'server'
     ]
+    private hubPorts: string[] = [
+        '1', '2'
+    ]
+    private devices: Device[] = [];
 
-    private allDevices: Device[] = [
-        new Device('Tube Light','light',false, 'Max Room'),
-        new Device('Bed Fan','fan',false, 'Max Room'),
-        new Device('TV','tv',false, 'Max Room'),
-        new Device('Study lamp','light',false, 'Max Room'),
-        new Device('AC','ac',false, 'Max Room'),
-        new Device('Lewis Fan(Stolen)','fan',false, 'Max Room'),
-        new Device('Ceiling light 1','light',false, 'Max Room'),
-        new Device('Ceiling light 2','light',true, 'Max Room'),
-        new Device('Fan 2','fan',false, 'Hall', true),
-        new Device('Fan 1','fan',false, 'Hall', true),
-        new Device('Tube Light 1','light',false, 'Hall',true),
-        new Device('Tube Light 2','light',false, 'Hall',true),
-        new Device('F1 Tv','tv',false, 'Hall',true),
-        new Device('AC','ac',false, 'Hall'),
-        new Device('Ceiling Light 1','light',false, 'Hall'),
-        new Device('Ceiling Light 2','light',true, 'Hall'),
-        new Device('Light 44','light',false, 'Lewis Room', true),
-        new Device('Fan 44','fan',false, 'Lewis Room'),
-        new Device('Light 7','light',false, 'Lewis Room'),
-        new Device('Fan 7','light',false, 'Lewis Room'),
-        new Device('AC 44','ac',false, 'Lewis Room', true),
-        new Device('TV 44','tv',false, 'Lewis Room'),
-        new Device('Ceiling Light 44','light',false, 'Lewis Room'),
-        new Device('My Twitch Server','server',true, 'Lando Room', true),
-        new Device('Landos TV','tv',true, 'Lando Room'),
-        new Device('Landos AC','ac',true, 'Lando Room'),
-    ];
+    private allDevices: Device[] = [];
 
-    getCurrentDevices(id: string, name: string) {
-        return this.allDevices.filter((obj) => obj.room === name).slice()
+    constructor(private http: HttpClient){this.getAllDevices()}
+
+    getCurrentDevices(id: string) {
+        return this.devices.filter((obj) => obj.roomId == id).slice()
     }
 
     getAllDevices(){
-        return this.allDevices.slice();
+        this.http.get("http://localhost:2000/getdevices/1").subscribe(responseData => {
+            console.log(responseData)
+            var devices = Object.values(responseData);
+            this.devices = [];
+            devices.forEach(device => {
+                var roomObj = new Device(device['id'], device['Name'], device['type'], device['mode'], device['room_id'], device['hub_id'], device['accountSid'], device['status'], device['is_favorite'], device['value'], device['HubPort']) 
+                this.devices.push(roomObj)
+            });
+            console.log("devices",this.devices)
+            this.DeviceEvent.emit(this.devices)
+        })
     }
 
     getFavDevices(){
-        return this.allDevices.filter((obj) => obj.isFavorite === true).slice()
+        return this.devices.filter((obj) => obj.isFavorite == true).slice()
     }
 
-    addDevice(name: string, type: string, roomname: string){
-        this.allDevices.push(new Device(name, type, false, roomname));
-    }
-
-    editDevice(id: string, name: string, type: string){
-        this.allDevices.forEach((obj)=>{
-            if(obj['id']===id){
-                obj.name = name;
-                obj.type = type;
+    addDevice(name: string, type: string, roomId: string, hubId: string, hubPort: string){
+        const mode = "output"
+        var url = "http://localhost:2000/adddevice/1?name="+name+"&roomId="+roomId+"&hubId="+hubId+"&mode="+mode+"&type="+type+"&hubPort="+hubPort
+        console.log(url)
+        this.http.post(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getAllDevices()
             }
-        });
+        )
+    }
+
+    editDevice(id: string, name: string, type: string, hubId: string, hubPort: string){
+        var url = "http://localhost:2000/editdevice/1?id="+id+"&name="+name+"&type="+type+"&hubPort="+hubPort+"&hubId="+hubId
+        console.log(url)
+        this.http.put(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getAllDevices()
+            }
+        )
     }
 
     deleteDevice(id: string){
-        this.allDevices = this.allDevices.filter(
-            (obj) => obj.id !== id
-        );
+        var url = "http://localhost:2000/deletedevice/1?id="+id
+        console.log("delete request ", url)
+        this.http.delete(url).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getAllDevices()
+            }
+        )
     }
 
     getDeviceTypes(){
         return this.deviceTypes;
+    }
+
+    getHubPorts(){
+        return this.hubPorts;
+    }
+
+    setFavorite(id: string, value: boolean){
+        var url = "http://localhost:2000/setfavorite/1?id="+id+"&value="+value
+        console.log(url)
+        this.http.put(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getAllDevices()
+            }
+        )
+    }
+
+    setValue(id: string, value: string, hubPort: string, hubRefID: string){
+        var url = "http://localhost:2000/setvalue/1?id="+id+"&value="+value+"&hubPort="+hubPort+"&hubRefId="+hubRefID
+        console.log(url)
+        this.http.put(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getAllDevices()
+            }
+        )
     }
 }

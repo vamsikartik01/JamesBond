@@ -11,15 +11,15 @@
 
 /* CSS */
 .favorites::-webkit-scrollbar {
-    width: 8px; /* Adjust this width to your preference */
+    width: 8px; 
   }
-  
+
   .favorites::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Make the thumb transparent */
+    background-color: transparent; 
   }
   
   .favoritesr::-webkit-scrollbar-track {
-    background-color: transparent; /* Make the track transparent */
+    background-color: transparent; 
   }
 
 .favorites-row {

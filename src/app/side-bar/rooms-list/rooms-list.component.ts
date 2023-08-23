@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Hub } from 'src/app/models/hub.model';
 import { Room } from 'src/app/models/room.model';
+import { HubService } from 'src/app/services/hub.service';
 import { RoomService } from 'src/app/services/rooms.service';
 
 @Component({
@@ -9,15 +12,21 @@ import { RoomService } from 'src/app/services/rooms.service';
 })
 export class RoomsListComponent {
   roomsList: Room[];
+  hubsList: Hub[];
 
-  constructor(private roomService: RoomService){}
+  constructor(private roomService: RoomService, private hubService: HubService, private http: HttpClient){}
 
   ngOnInit(){
-    this.roomsList = this.roomService.getRooms()  
-
+    this.roomService.getRooms()  
+    this.hubService.GetHubs()
     this.roomService.roomEvent.subscribe(
       (rooms: Room[]) => {
         this.roomsList = rooms;
+      }
+    );
+    this.hubService.HubsEvent.subscribe(
+      (hubs: Hub[]) => {
+        this.hubsList = hubs;
       }
     );
   }

@@ -13,5 +13,11 @@ export class FavoritesComponent {
 
   ngOnInit(){
     this.devicesFav = this.controlpanelService.getFavDevices();
+
+    this.controlpanelService.DeviceEvent.subscribe(
+      () => {
+        this.devicesFav = this.controlpanelService.getFavDevices();
+      }
+    );
   }
 }

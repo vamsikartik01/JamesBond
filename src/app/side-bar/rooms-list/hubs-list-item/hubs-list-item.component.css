@@ -1,0 +1,17 @@
+.hub-item{
+    background-color: transparent;
+    padding: 5px;
+    /*border: 1px solid black; */
+    border-radius: 5px;
+    width: 100%;
+}
+
+.hub-item:hover{
+    background-color: #240090;
+    color: white;
+}
+
+.activeHub {
+    background-color: #240090;
+    color: white;
+}

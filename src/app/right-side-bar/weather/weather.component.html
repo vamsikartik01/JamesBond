@@ -1,14 +1,14 @@
 <div class="weather-widget">
     <div class="weather-header">
-        <h3>{{ City }}</h3>
+        <h3>{{ weatherData.name }}</h3>
         <p>{{ State }}, {{Country}}</p>
     </div>
     <div class="weather-status">
-        <img src="../../../assets/weather/10d.png" alt="weather.jpg" class="weather-image">
+        <img src="../../../assets/weather/{{ weatherData.icon }}.png" alt="weather.jpg" class="weather-image">
         <div class="weather-data">
-            <h2>{{ temp }}</h2>
-            <p>{{ description }}</p>
-            <p>{{minTemp}}/{{maxTemp}}</p>
+            <h2>{{ temp }} *C</h2>
+            <p>{{ weatherData.description }}</p>
+            <p>{{minTemp}} *C/{{maxTemp}} *C</p>
         </div>
     </div>
     <br/><br/>

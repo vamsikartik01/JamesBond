@@ -1,0 +1,15 @@
+<div class="add-room">
+    <div class="heading">
+        <h2 *ngIf="!editHub">Add a new Hub</h2>
+        <h2 *ngIf="editHub">Edit Hub Info - {{ hub.name }}</h2>
+    </div>
+    <div class="device-form">
+        <input type="text" #hubname class="device-form-input" id="hubname" name="hubname" placeholder="Enter Hub Name" [value]="editHub ? hub.name : ''">
+        <input type="text" #hubrefid class="device-form-input" id="hubrefid" name="hubrefid" placeholder="Enter Hub Reference Id" [value]="editHub ? hub.refId : ''">
+        <br/><br/>
+        <button *ngIf="!editHub" class="btn btn-primary" (click)="addHub()" >Create Hub</button>
+        <button *ngIf="editHub" class="btn btn-primary" style="float: left;" (click)="editHubInfo()" >Save Hub</button>
+        <button *ngIf="editHub" class="btn btn-danger" style="float: right;" (click)="deleteHubInfo()" >Delete Hub</button>
+        <br>
+    </div>
+</div>

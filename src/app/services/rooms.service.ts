@@ -1,40 +1,68 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 
 import { Room } from "../models/room.model";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { HubService } from "./hub.service";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class RoomService {
     roomEvent = new EventEmitter<Room[]>();
-    private rooms: Room[] = [
-        new Room('1','Hall'),
-        new Room('2','Lewis Room'),
-        new Room('3','Max Room'),
-        new Room('4','Lando Room'),
-    ];
+    private rooms: Room[];
 
-    getRooms(){
-        return this.rooms.slice();
+    constructor(private http: HttpClient, private hubService:HubService){}
+
+    getRooms() {
+        this.http.get("http://localhost:2000/getrooms/1").subscribe(responseData => {
+            var rooms = Object.values(responseData);
+            this.rooms = [];
+            rooms.forEach(room => {
+                var roomObj = new Room(room['id'], room['name'], room['accountSid']) 
+                this.rooms.push(roomObj)
+            });
+            console.log("rooms",this.rooms)
+            this.roomEvent.emit(this.rooms);
+            this.hubService.GetHubs();
+        })
     }
 
     getRoom(id: string) {
-        return this.rooms.find((room) => room['id'] === id);
+        return (this.rooms ?? []).find(room => room.id == id);
+        
     }
 
     addRoom(name: string){
-        this.rooms.push(new Room(Date.now().toString(),name));
-        this.roomEvent.emit(this.rooms);
+        var url = "http://localhost:2000/addroom/1?name="+name
+        console.log(url)
+        this.http.post(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getRooms()
+            }
+        )
     }
 
     editRoomName(id: string,name: string){
-        this.rooms.forEach((obj) => {
-            if (obj.id === id){
-                obj.name = name;
+        var url = "http://localhost:2000/editroom/1?id="+id+"&name="+name
+        console.log(url)
+        this.http.put(url, {}).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getRooms()
             }
-        });
+        )
     }
 
     deleteRoom(id: string){
-        this.rooms = this.rooms.filter(
-            (obj) => obj.id !== id
+        var url = "http://localhost:2000/deleteroom/1?id="+id
+        console.log("delete request ", url)
+        this.http.delete(url).subscribe(
+            responseData => {
+                console.log(responseData)
+                this.getRooms()
+            }
         )
         this.roomEvent.emit(this.rooms);
     }
