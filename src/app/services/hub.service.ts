@@ -12,7 +12,7 @@ export class HubService {
     constructor(private http: HttpClient){}
 
     GetHubs(){
-        this.http.get("http://localhost:2000/gethubs/1").subscribe(responseData => {
+        this.http.get("http://jamesbond.3dns.me:2000/gethubs/1").subscribe(responseData => {
             var hubs = Object.values(responseData);
             this.hubs = [];
             hubs.forEach(hub => {
@@ -37,7 +37,7 @@ export class HubService {
     }
 
     AddHub(name: string, refId: string){
-        var url = "http://localhost:2000/addhub/1?name="+name+"&refid="+refId
+        var url = "http://jamesbond.3dns.me:2000/addhub/1?name="+name+"&refid="+refId
         console.log(url)
         this.http.post(url, {}).subscribe(
             responseData => {
@@ -48,7 +48,7 @@ export class HubService {
     }
 
     EditHub(id: string, name:string, refId: string) {
-        var url = "http://localhost:2000/edithub/1?id="+id+"&name="+name+"&refid="+refId
+        var url = "http://jamesbond.3dns.me:2000/edithub/1?id="+id+"&name="+name+"&refid="+refId
         console.log(url)
         this.http.put(url, {}).subscribe(
             responseData => {
@@ -59,7 +59,7 @@ export class HubService {
     }
 
     DeleteHub(id: string){
-        var url = "http://localhost:2000/deletehub/1?id="+id
+        var url = "http://jamesbond.3dns.me:2000/deletehub/1?id="+id
         console.log("delete request ", url)
         this.http.delete(url).subscribe(
             responseData => {
