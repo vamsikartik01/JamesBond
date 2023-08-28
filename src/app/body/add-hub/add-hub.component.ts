@@ -11,7 +11,6 @@ import { HubService } from 'src/app/services/hub.service';
 export class AddHubComponent {
   @ViewChild('hubname') hubNameObj: ElementRef;
   @ViewChild('hubrefid') hubRefIdObj: ElementRef;
-  @ViewChild('hubport') hubPortObj: ElementRef;
 
   editHub: boolean = false;
   hubName: string;
