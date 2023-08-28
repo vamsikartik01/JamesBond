@@ -6,14 +6,14 @@ import { HttpClient } from "@angular/common/http";
     providedIn: 'root'
 })
 export class WeatherService {
-    private url: string = "jamesbond.3dns.me"
+    private url: string = "https://jamesbond.3dns.me/api"
     private weatherData: Weather
     weatherEvent = new EventEmitter<Weather>()
 
     constructor(private http: HttpClient){this.getWeather()}
 
     getWeather(){
-        this.http.get("http://"+this.url+":2000/weather/1").subscribe(responseData => {
+        this.http.get(this.url+"/weather/1").subscribe(responseData => {
             this.weatherData = new Weather(responseData)
             console.log("weather1",this.weatherData)
             this.weatherEvent.emit(this.weatherData)
