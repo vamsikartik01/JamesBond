@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 
 export class NoteService {
     currNote = new EventEmitter<string>();
-    private note: string = "Max, Don't steal my fan again! --Lewis"
+    private note: string = ""
 
     getNote() {
         return this.note.slice();

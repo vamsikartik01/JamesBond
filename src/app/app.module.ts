@@ -33,6 +33,7 @@ import { HubService } from './services/hub.service';
 import { WeatherService } from './services/weather.service';
 import { WebsocketService } from './services/websocket.service';
 import { HubsListItemComponent } from './side-bar/rooms-list/hubs-list-item/hubs-list-item.component';
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   { path: '',component:HomeComponent },
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'addroom',component:AddRoomComponent},
   { path: 'adddevice/:roomname/:roomid',component:AddDeviceComponent },
   { path: 'addhub' ,component:AddHubComponent},
+  { path: 'auth' ,component:AuthComponent},
 ];
 
 @NgModule({
@@ -66,7 +68,8 @@ const appRoutes: Routes = [
     AddRoomComponent,
     AddDeviceComponent,
     AddHubComponent,
-    HubsListItemComponent
+    HubsListItemComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

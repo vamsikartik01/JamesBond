@@ -8,6 +8,7 @@ import { WebsocketService } from "./websocket.service";
 })
 export class ControlPanelService {
     private url: string = "https://jamesbond.3dns.me/api"
+    //private url: string = "http://localhost:2000"
     DeviceEvent = new EventEmitter<Device[]>()
     private deviceTypes: string[] = [
         'default','fan', 'light', 'tv', 'ac', 'server'

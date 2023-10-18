@@ -9,6 +9,7 @@ import { HubService } from "./hub.service";
     providedIn: 'root'
 })
 export class RoomService {
+    //private url: string = "http://localhost:2000"
     private url: string = "https://jamesbond.3dns.me/api"
     roomEvent = new EventEmitter<Room[]>();
     private rooms: Room[];
