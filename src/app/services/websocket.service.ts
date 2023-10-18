@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class WebsocketService {
+    //private url: string = "localhost"
     private url: string = "jamesbond.3dns.me"
     private socket: WebSocket;
 

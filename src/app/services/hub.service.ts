@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HubService {
     private url: string = "https://jamesbond.3dns.me/api"
+    //private url: string = "http://localhost:2000"
     HubsEvent = new EventEmitter<Hub[]>()
     private hubs: Hub[] = []
 

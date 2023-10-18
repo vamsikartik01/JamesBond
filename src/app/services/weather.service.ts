@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
     providedIn: 'root'
 })
 export class WeatherService {
+    //private url: string = "http://localhost:2000"
     private url: string = "https://jamesbond.3dns.me/api"
     private weatherData: Weather
     weatherEvent = new EventEmitter<Weather>()
